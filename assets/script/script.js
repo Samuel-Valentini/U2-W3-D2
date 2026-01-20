@@ -47,6 +47,7 @@ clearButton.addEventListener("click", () => {
 if (sessionStorage.getItem(actual)) {
     msecondsTimer = Number(sessionStorage.getItem(actual));
     secondsBar = Number(sessionStorage.getItem(actual));
+    widthMsBar = Number(sessionStorage.getItem(actual)) / 100;
     minuteBar = Number(sessionStorage.getItem(actual)) / 60;
     hoursBar = Number(sessionStorage.getItem(actual)) / 60 / 60;
     daysBar = Number(sessionStorage.getItem(actual)) / 60 / 60 / 24;
