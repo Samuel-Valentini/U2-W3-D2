@@ -15,31 +15,47 @@
 
         <!-- form -->
         <div class="container">
-            <form>
-                <div class="mb-3">
-                    <p
-                        id="actualValue"
-                        class="text-success text-center fw-bold">
-                        Non ci sono attualmente valori salvati.
-                    </p>
-                    Il
-                    <label for="name" class="form-label">Nome</label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="name"
-                        aria-describedby="nome"
-                        placeholder="Nome Cognome" />
-                    <div class="form-text">Inserisci nome e cognome.</div>
-                </div>
+            <div class="row justify-content-center">
+                <div class="col col-12 col-md-6 col-lg-5">
+                    <form id="name-surname">
+                        <div class="mb-3">
+                            <p
+                                id="actualValue"
+                                class="text-success text-center fw-bold">
+                                Non ci sono attualmente valori salvati.
+                            </p>
+                            Il
+                            <label for="name" class="form-label">Nome</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="name"
+                                aria-describedby="nome"
+                                required
+                                placeholder="Nome Cognome" />
+                            <div class="form-text">
+                                Inserisci nome e cognome.
+                            </div>
+                        </div>
 
-                <button id="save" type="button" class="btn btn-success">
-                    Salva
-                </button>
-                <button id type="button" class="btn btn-warning">
-                    Rimuovi
-                </button>
-            </form>
+                        <button id="save" type="submit" class="btn btn-success">
+                            Salva
+                        </button>
+                        <button
+                            id="delete"
+                            type="button"
+                            class="btn btn-warning">
+                            Rimuovi
+                        </button>
+                        <button
+                            id="clear"
+                            type="button"
+                            class="btn btn-outline-warning">
+                            Pulisci campi
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
         <!-- form end -->
 
