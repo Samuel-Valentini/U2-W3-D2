@@ -62,25 +62,28 @@ setInterval(() => {
     widthMsBar += 2.5;
 
     if (widthMsBar >= 100) {
-        widthMsBar = 0;
+        widthMsBar = widthMsBar % 100;
     }
 
     secondsBar += 1 / 40;
 
     if (secondsBar >= 60) {
-        secondsBar = 0;
-        minuteBar += 1;
+        secondsBar = secondsBar % 60;
     }
+
+    minuteBar = msecondsTimer / 60;
 
     if (minuteBar >= 60) {
-        minuteBar = 0;
-        hoursBar += 1;
+        minuteBar = minuteBar % 60;
     }
 
+    hoursBar = msecondsTimer / 60 / 60;
+
     if (hoursBar >= 24) {
-        hoursBar = 0;
-        daysBar += 1;
+        hoursBar = hoursBar % 24;
     }
+
+    daysBar = msecondsTimer / 60 / 60 / 24;
 
     msBar.style.width = widthMsBar + "%";
     sBar.style.width = (secondsBar / 60) * 100 + "%";
