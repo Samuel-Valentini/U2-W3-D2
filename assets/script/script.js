@@ -20,6 +20,7 @@ const sBarT = document.getElementById("s-t");
 const mBarT = document.getElementById("min-t");
 const hBarT = document.getElementById("hours-t");
 const dBarT = document.getElementById("days-t");
+const yBarT = document.getElementById("years-t");
 
 const actual = "actualTime";
 const start = "start";
@@ -38,6 +39,7 @@ let secondsBarUtilityT = 0;
 let minuteBarT = 0;
 let hoursBarT = 0;
 let daysBarT = 0;
+let yearsBarT = 0;
 
 if (localStorage.getItem(variableName)) {
     phrase.textContent = `Attualmente il nome salvato è ${localStorage.getItem(variableName)}`;
@@ -72,7 +74,6 @@ if (!localStorage.getItem(start)) {
     localStorage.setItem(start, Date.now());
 } else {
     msecondsTimerT = (Date.now() - Number(localStorage.getItem(start))) / 1000;
-    console.log(msecondsTimerT);
     secondsBarT = (Date.now() - Number(localStorage.getItem(start))) / 1000;
     widthMsBarT =
         ((((Date.now() - Number(localStorage.getItem(start))) / 1000) * 1000) %
@@ -87,6 +88,14 @@ if (!localStorage.getItem(start)) {
         60 /
         60 /
         24;
+
+    yearsBarT =
+        (Date.now() - Number(localStorage.getItem(start))) /
+        1000 /
+        60 /
+        60 /
+        24 /
+        365;
 }
 
 setInterval(() => {
@@ -132,7 +141,7 @@ setInterval(() => {
     sBar.style.width = (secondsBar / 60) * 100 + "%";
     mBar.style.width = (minuteBar / 60) * 100 + "%";
     hBar.style.width = (hoursBar / 24) * 100 + "%";
-    dBar.style.width = (daysBar / 365) * 100 + "%";
+    dBar.style.width = (daysBar / 365.25) * 100 + "%";
 
     widthMsBarT += 2.5;
 
@@ -160,9 +169,16 @@ setInterval(() => {
 
     daysBarT = msecondsTimerT / 60 / 60 / 24;
 
+    if (daysBarT >= 365.25) {
+        daysBarT = (daysBarT % 365.25) + 0.25;
+    }
+
+    yearsBarT = msecondsTimerT / 60 / 60 / 24 / 365.25;
+
     msBarT.style.width = widthMsBarT + "%";
     sBarT.style.width = (secondsBarT / 60) * 100 + "%";
     mBarT.style.width = (minuteBarT / 60) * 100 + "%";
     hBarT.style.width = (hoursBarT / 24) * 100 + "%";
     dBarT.style.width = (daysBarT / 365) * 100 + "%";
+    yBarT.style.width = (yearsBarT / 1000) * 100 + "%";
 }, 25);
