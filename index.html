@@ -59,6 +59,51 @@
         </div>
         <!-- form end -->
 
+        <!-- clock -->
+
+        <div class="container mt-5">
+            <p class="text-center fw-bold">Timer</p>
+            <div class="text-center">
+                <p class="btn btn-outline-primary" id="seconds-number">0</p>
+            </div>
+            <div class="row gap-3">
+                <div class="progress col-12 p-0" role="progressbar">
+                    <span class="ps-1 position-absolute">millisecondi</span>
+                    <div
+                        class="progress-bar progress-bar-striped progress-bar-animated text-black"
+                        id="ms"
+                        style="width: 0%; transition: none !important"></div>
+                </div>
+                <div class="progress col-12 p-0" role="progressbar">
+                    <span class="ps-1 position-absolute">secondi</span>
+                    <div
+                        class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                        id="s"
+                        style="width: 0%; transition: none !important"></div>
+                </div>
+                <div class="progress col-12 p-0" role="progressbar">
+                    <span class="ps-1 position-absolute">minuti</span>
+                    <div
+                        class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                        style="width: 0%; transition: none !important"></div>
+                </div>
+                <div class="progress col-12 p-0" role="progressbar">
+                    <span class="ps-1 position-absolute">ore</span>
+                    <div
+                        class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                        style="width: 0%; transition: none !important"></div>
+                </div>
+                <div class="progress col-12 p-0" role="progressbar">
+                    <span class="ps-1 position-absolute">giorni</span>
+                    <div
+                        class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                        style="width: 0%; transition: none !important"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- clock end -->
+
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
