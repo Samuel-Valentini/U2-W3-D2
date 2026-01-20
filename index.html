@@ -59,10 +59,10 @@
         </div>
         <!-- form end -->
 
-        <!-- clock -->
+        <!-- clock della sessione-->
 
         <div class="container mt-5">
-            <p class="text-center fw-bold">Timer</p>
+            <p class="text-center fw-bold">Timer della sessione</p>
             <div class="text-center">
                 <p class="btn btn-outline-primary" id="seconds-number">0</p>
             </div>
@@ -100,6 +100,56 @@
                     <div
                         class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
                         id="days"
+                        style="width: 0%; transition: none !important"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- clock end -->
+
+        <!-- clock dall'inizio-->
+
+        <div class="container mt-5">
+            <p class="text-center fw-bold w-25 mx-auto">
+                Timer dall'ultima cancellazione del local storage
+            </p>
+            <div class="text-center">
+                <p class="btn btn-outline-primary" id="seconds-number-t">0</p>
+            </div>
+            <div class="row gap-3">
+                <div class="progress col-12 p-0" role="progressbar">
+                    <span class="ps-1 position-absolute">secondo</span>
+                    <div
+                        class="progress-bar progress-bar-striped progress-bar-animated text-black"
+                        id="ms-t"
+                        style="width: 0%; transition: none !important"></div>
+                </div>
+                <div class="progress col-12 p-0" role="progressbar">
+                    <span class="ps-1 position-absolute">minuto</span>
+                    <div
+                        class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                        id="s-t"
+                        style="width: 0%; transition: none !important"></div>
+                </div>
+                <div class="progress col-12 p-0" role="progressbar">
+                    <span class="ps-1 position-absolute">ora</span>
+                    <div
+                        class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+                        id="min-t"
+                        style="width: 0%; transition: none !important"></div>
+                </div>
+                <div class="progress col-12 p-0" role="progressbar">
+                    <span class="ps-1 position-absolute">giorno</span>
+                    <div
+                        class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                        id="hours-t"
+                        style="width: 0%; transition: none !important"></div>
+                </div>
+                <div class="progress col-12 p-0" role="progressbar">
+                    <span class="ps-1 position-absolute">anno</span>
+                    <div
+                        class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                        id="days-t"
                         style="width: 0%; transition: none !important"></div>
                 </div>
             </div>
