@@ -10,11 +10,19 @@ const variableName = "fullname";
 const secondsNumber = document.getElementById("seconds-number");
 const msBar = document.getElementById("ms");
 const sBar = document.getElementById("s");
+const mBar = document.getElementById("min");
+const hBar = document.getElementById("hours");
+const dBar = document.getElementById("days");
+
 const actual = "actualTime";
 let msecondsTimer = 0;
+
 let widthMsBar = 0;
 let secondsBar = 0;
 let secondsBarUtility = 0;
+let minuteBar = 0;
+let hoursBar = 0;
+let daysBar = 0;
 
 if (localStorage.getItem(variableName)) {
     phrase.textContent = `Attualmente il nome salvato è ${localStorage.getItem(variableName)}`;
@@ -38,6 +46,10 @@ clearButton.addEventListener("click", () => {
 
 if (sessionStorage.getItem(actual)) {
     msecondsTimer = Number(sessionStorage.getItem(actual));
+    secondsBar = Number(sessionStorage.getItem(actual));
+    minuteBar = Number(sessionStorage.getItem(actual)) / 60;
+    hoursBar = Number(sessionStorage.getItem(actual)) / 60 / 60;
+    daysBar = Number(sessionStorage.getItem(actual)) / 60 / 60 / 24;
 }
 
 setInterval(() => {
@@ -57,8 +69,22 @@ setInterval(() => {
 
     if (secondsBar >= 60) {
         secondsBar = 0;
+        minuteBar += 1;
+    }
+
+    if (minuteBar >= 60) {
+        minuteBar = 0;
+        hoursBar += 1;
+    }
+
+    if (hoursBar >= 24) {
+        hoursBar = 0;
+        daysBar += 1;
     }
 
     msBar.style.width = widthMsBar + "%";
     sBar.style.width = (secondsBar / 60) * 100 + "%";
+    mBar.style.width = (minuteBar / 60) * 100 + "%";
+    hBar.style.width = (hoursBar / 24) * 100 + "%";
+    dBar.style.width = (daysBar / 365) * 100 + "%";
 }, 25);
